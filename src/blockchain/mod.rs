@@ -1,29 +1,69 @@
-use crate::types::block::Block;
-use crate::types::hash::H256;
+use crate::types::block::{Block, Header, Content};
+use crate::types::hash::{H256, Hashable};
+use std::collections::HashMap;
+use crate::types::merkle::MerkleTree;
+use rand::Rng;
 
 pub struct Blockchain {
+    pub block_map: HashMap<H256, Block>,
+    pub block_seq: HashMap<H256, usize>,
+    pub tip: H256
 }
 
 impl Blockchain {
     /// Create a new blockchain, only containing the genesis block
-    pub fn new() -> Self {
-        Self {}
-    }
+        pub fn new() -> Self {
+            let mut rng = rand::thread_rng();
+            let parent = [0; 32].into();
+            let nonce: u32 = rng.gen();
+            let signed_transactions = Vec::new();
+            let timestamp: u128 = std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).unwrap().as_millis(); //系统时间
+
+            let merkle_tree = MerkleTree::new(&signed_transactions);
+            let merkle_root: H256 = merkle_tree.root(); //也可以H256类型
+
+            let buffer: [u8; 32] = [255; 32];
+            let difficulty: H256 = buffer.into(); //
+
+            let header = Header{ parent: parent, nonce: nonce, difficulty: difficulty, timestamp: timestamp, merkle_root: merkle_root };
+            let content = Content{ content: signed_transactions};
+            let genesis = Block{ header: header, content: content};
+            let genesis_hash = genesis.hash();
+            let mut block_map = HashMap::new();
+            let mut block_seq = HashMap::new();
+            block_map.insert(genesis_hash, genesis);
+            block_seq.insert(genesis_hash, 0);
+            Blockchain {block_map: block_map, block_seq: block_seq, tip: genesis_hash}
+        }
 
     /// Insert a block into blockchain
     pub fn insert(&mut self, block: &Block) {
-        unimplemented!()
+        let parent = block.get_parent();
+        let block_hash = block.hash();
+        self.block_map.insert(block_hash, block.clone());
+        self.block_seq.insert(block_hash, self.block_seq[&parent] + 1);
+        println!("{:?} {:?}", block_hash, self.block_seq[&block_hash]);
+        if self.block_seq[&block_hash] > self.block_seq[&self.tip] {
+            self.tip = block_hash;
+        }
     }
 
     /// Get the last block's hash of the longest chain
     pub fn tip(&self) -> H256 {
-        unimplemented!()
+        self.tip
     }
 
     /// Get all blocks' hashes of the longest chain, ordered from genesis to the tip
     pub fn all_blocks_in_longest_chain(&self) -> Vec<H256> {
-        // unimplemented!()
-        vec![]
+        let mut chain = Vec::new();
+        let mut hash = self.tip;
+        while self.block_seq[&hash] != 0 {
+            chain.push(hash);
+            hash = self.block_map[&hash].get_parent();
+        }
+        chain.push(hash);
+        chain.reverse();
+        return chain;
     }
 }
 

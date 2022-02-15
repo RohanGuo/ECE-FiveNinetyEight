@@ -1,32 +1,19 @@
-use std::ops::Add;
-
-use serde::{Serialize, Deserialize}; // 序列化
+use serde::{Serialize, Deserialize};
+use ring::digest::{Context, SHA256};
 
 // 20-byte address
 #[derive(Eq, PartialEq, Serialize, Deserialize, Clone, Hash, Default, Copy)]
-pub struct Address([u8; 20]); //有很多属性
+pub struct Address([u8; 20]);
 
-/*
-pub trait Hashable {
-    /// Hash the object using SHA256.
-    fn hash(&self) -> Address;
-}
-impl Hashable for H256 {
-    fn hash(&self) -> H256 {
-        ring::digest::digest(&ring::digest::SHA256, &self.0).into()
-    }
-}
-*/
-
-impl std::convert::From<&[u8; 20]> for Address { //转换类型, 数组类型
+impl std::convert::From<&[u8; 20]> for Address {
     fn from(input: &[u8; 20]) -> Address {
-        let mut buffer: [u8; 20] = [0; 20];  //初始化，全零
+        let mut buffer: [u8; 20] = [0; 20];
         buffer[..].copy_from_slice(input);
         Address(buffer)
     }
 }
 
-impl std::convert::From<[u8; 20]> for Address { //转换类型
+impl std::convert::From<[u8; 20]> for Address {
     fn from(input: [u8; 20]) -> Address {
         Address(input)
     }
@@ -34,7 +21,7 @@ impl std::convert::From<[u8; 20]> for Address { //转换类型
 
 impl std::fmt::Display for Address {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-        let start = if let Some(precision) = f.precision() { //start为0到20
+        let start = if let Some(precision) = f.precision() {
             if precision >= 40 {
                 0
             } else {
@@ -59,30 +46,19 @@ impl std::fmt::Debug for Address {
         )
     }
 }
-/*impl Address{
-    pub fn from_public_key_bytes(bytes: &[u8]) -> Address {
-        unimplemented!()
-    }
-}*/
-impl std::convert::From<ring::digest::Digest> for Address {
-    fn from(input: ring::digest::Digest) -> Address{
-    //fn from(input: ring::digest::Digest) -> Address {
-        let mut raw_hash: [u8; 20] = [0; 20];
-        raw_hash[0..20].copy_from_slice(input.as_ref());
-        Address(raw_hash)
-    }
-}
+
 impl Address {
     pub fn from_public_key_bytes(bytes: &[u8]) -> Address {
-        //hash(bytes);
-        //hash(bytes.as_ref());
-        let hash_d = ring::digest::digest(&ring::digest::SHA256, bytes);
-        // Digest 变为了 Address
-        //let input: [u8; 20] = hash_input.0;
-        let mut cut_hash:[u8; 20] = [0; 20];
-        cut_hash[0..20].copy_from_slice(&hash_d.as_ref()[12..32]);
-        Address(cut_hash)
-        //hash+last 20 byte;  
+        let mut context = Context::new(&SHA256);
+        context.update(&bytes);
+        let result = context.finish();
+        let result = result.as_ref();
+        let mut v:[u8;20] = [0_u8; 20];
+        for i in 12..32 {
+            v[i - 12] = result[i];
+        }
+
+        Address::from(v)
     }
 }
 // DO NOT CHANGE THIS COMMENT, IT IS FOR AUTOGRADER. BEFORE TEST

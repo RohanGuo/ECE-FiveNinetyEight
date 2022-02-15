@@ -10,7 +10,7 @@ pub struct Node {
     parent: i32,
     left: i32, //https://www.reddit.com/r/rust/comments/acme4g/how_to_deal_with_a_tree_node_with/
     right: i32, //https://docs.rs/leetcode_prelude/0.1.2/leetcode_prelude/struct.TreeNode.html
-    isEmpty: bool,
+    is_empty: bool,
 }
 #[derive(Eq, PartialEq, Clone, Hash, Default)]
 pub struct MerkleTree {
@@ -22,77 +22,83 @@ pub struct MerkleTree {
 impl MerkleTree {
     pub fn new<T>(data: &[T]) -> Self where T: Hashable, {
         let input_len = data.len();
-        let mut nodeVec: Vec<Node> = Vec::new();
+        let mut node_vec: Vec<Node> = Vec::new();
         if input_len == 0 {
-            return MerkleTree {root: nodeVec, leaf_size: 0, start_index: 0};
+            return MerkleTree {root: node_vec, leaf_size: 0, start_index: 0};
         }
         if input_len ==1 {
-            let node: Node = Node{val:data[0].hash(), parent: -1, left: -1, right: -1, isEmpty: false};
-            nodeVec.push(node);
-            return MerkleTree{root: nodeVec, leaf_size: 1, start_index: 1};
+            let empty_node = Node{val:[0u8; 32].into(), parent: -1, left: -1, right: -1, is_empty: false};
+            let node: Node = Node{val:data[0].hash(), parent: -1, left: -1, right: -1, is_empty: false};
+            node_vec.push(empty_node);
+            node_vec.push(node);
+            return MerkleTree{root: node_vec, leaf_size: 1, start_index: 1};
         }
 
-        let mut node_size = 1; //suppose tree is full except for the bottom layer
-        while node_size < input_len { 
+        let mut node_size = 1;
+        while node_size < input_len {
             node_size = node_size * 2;
         }
-        let startIndex = node_size;
+        let start_index = node_size;
         node_size = node_size - 1 + input_len;
-
-        for i in 0..node_size + 1 { //porperly linked the treee, not include the parent
-            let mut node: Node = Node{val: data[0].hash(), parent: -1, left: -1, right: -1, isEmpty: true};
+        println!("node size {}", node_size);
+        for i in 0..node_size + 1 {
+            let mut node: Node = Node{val: data[0].hash(), parent: -1, left: -1, right: -1, is_empty: true};
             if i * 2 <= node_size {
-                let leftIndex: i32 = (i * 2) as i32;
-                node.left = leftIndex;
+                let left_index: i32 = (i * 2) as i32;
+                node.left = left_index;
             }
             if i * 2 + 1 <= node_size {
-                let rightIndex: i32 = (i * 2 + 1) as i32;
-                node.right = rightIndex;
+                let right_index: i32 = (i * 2 + 1) as i32;
+                node.right = right_index;
             }
-            nodeVec.push(node);
+            node_vec.push(node);
         }
 
-        for i in startIndex .. startIndex + input_len {
-            nodeVec[i].val = data[i - startIndex].hash();
-            nodeVec[i].isEmpty = false;
+        for i in start_index .. start_index + input_len {
+            node_vec[i].val = data[i - start_index].hash();
+            node_vec[i].is_empty = false;
         }
-        for i in 1 .. startIndex {
-            if nodeVec[startIndex - i].left != -1 {
-                
-                let left = nodeVec[startIndex - i].left as usize;
-                if nodeVec[left].isEmpty {
+        for i in 1 .. start_index {
+            if node_vec[start_index - i].left != -1 {
+                let left = node_vec[start_index - i].left as usize;
+                if node_vec[left].is_empty {
                     continue;
                 }
-                nodeVec[left].parent = (startIndex - i) as i32;
-                if nodeVec[startIndex - i].right != -1 {
-                    if nodeVec[left + 1].isEmpty { //copy the left brother if right is empty
-                        nodeVec[left + 1].val = nodeVec[left].val;
+                node_vec[start_index - i].is_empty = false;
+                node_vec[left].parent = (start_index - i) as i32;
+                if node_vec[start_index - i].right != -1 {
+                    if node_vec[left + 1].is_empty {
+                        node_vec[left + 1].val = node_vec[left].val;
                     }
-                    let left_hash = nodeVec[left].val.as_ref();
-                    let right_hash = nodeVec[left + 1].val.as_ref(); //as_ref to indice
+                    let left_hash = node_vec[left].val.as_ref();
+                    let right_hash = node_vec[left + 1].val.as_ref(); //as_ref to indice
                     let parent = [&left_hash[..], &right_hash[..]].concat();
                     let parent_hash_digest = digest::digest(&digest::SHA256, &parent); //degest类型的
                     let parent_hash = <H256>::from(parent_hash_digest);
-                    nodeVec[startIndex - i].val = parent_hash;
-                    nodeVec[left + 1].parent = (startIndex - i) as i32;
+                    node_vec[start_index - i].val = parent_hash;
+                    node_vec[left + 1].parent = (start_index - i) as i32;
                 } else {
-                    nodeVec[startIndex - i].val = nodeVec[left].val;
+                    node_vec[start_index - i].val = node_vec[left].val;
                 }
             }
         }
-        MerkleTree { root: nodeVec, leaf_size: input_len, start_index: startIndex}
+        MerkleTree { root: node_vec, leaf_size: input_len, start_index: start_index}
     }
 
     pub fn root(&self) -> H256 {
-        //unimplemented!()
-        return self.root[1].val;
+        if self.leaf_size < 1 {
+            return [0u8; 32].into();
+        }
+        else {
+            return self.root[1].val;
+        }
     }
 
 
     pub fn print(&self) {
         println!("leaf_size: {}, start_index: {}", self.leaf_size, self.start_index);
         for i in 1 .. (self.start_index + self.leaf_size) {
-            println!("{}, {:?}, {}, {}, {}, {}", i, self.root[i as usize].val, self.root[i as usize].left, self.root[i as usize].right, self.root[i as usize].isEmpty, self.root[i as usize].parent);
+            println!("{}, {:?}, {}, {}, {}, {}", i, self.root[i as usize].val, self.root[i as usize].left, self.root[i as usize].right, self.root[i as usize].is_empty, self.root[i as usize].parent);
         }
     }
     /// Returns the Merkle Proof of data at index i
@@ -157,7 +163,7 @@ mod tests {
     use crate::types::hash::H256;
     use super::*;
 
-    macro_rules! gen_merkle_tree_data { //宏
+    macro_rules! gen_merkle_tree_data { 
         () => {{
             vec![
                 (hex!("0a0b0c0d0e0f0e0d0a0b0c0d0e0f0e0d0a0b0c0d0e0f0e0d0a0b0c0d0e0f0e0d")).into(),
