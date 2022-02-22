@@ -1,10 +1,13 @@
 use super::message::Message;
 use super::peer;
 use super::server::Handle as ServerHandle;
-use crate::types::hash::H256;
+use crate::blockchain::Blockchain;
+use crate::types::block::Block;
+use crate::types::hash::{H256, Hashable};
 
 use log::{debug, warn, error};
 
+use std::sync::{Arc, Mutex};
 use std::thread;
 
 #[cfg(any(test,test_utilities))]
@@ -16,6 +19,7 @@ pub struct Worker {
     msg_chan: smol::channel::Receiver<(Vec<u8>, peer::Handle)>,
     num_worker: usize,
     server: ServerHandle,
+    blockchain: Arc<Mutex<Blockchain>>, //change
 }
 
 
@@ -24,11 +28,13 @@ impl Worker {
         num_worker: usize,
         msg_src: smol::channel::Receiver<(Vec<u8>, peer::Handle)>,
         server: &ServerHandle,
+        blockchain: &Arc<Mutex<Blockchain>>, //change
     ) -> Self {
         Self {
             msg_chan: msg_src,
             num_worker,
             server: server.clone(),
+            blockchain: Arc::clone(blockchain), //change
         }
     }
 
@@ -61,7 +67,86 @@ impl Worker {
                 Message::Pong(nonce) => {
                     debug!("Pong: {}", nonce);
                 }
-                _ => unimplemented!(),
+                // receive msg type, peer is for write
+                //_ => unimplemented!(),
+
+                // find hashes not in blockchain
+                Message::NewBlockHashes(nonce) =>{
+                    // debug!("NewBlockHashes: {:?}", nonce);
+                    if nonce.len() != 0{
+                        let mut vec_hash: Vec<H256> = Vec::new();
+                        let blockchain = self.blockchain.lock().unwrap();
+                        // for i in 0..nonce.len(){
+                        for hash in nonce.clone() {   
+                            // let hash = nonce[i];
+                            if blockchain.block_map.get(&hash).is_none(){
+                                vec_hash.push(hash);
+                                // peer.write(Message::GetBlocks(nonce));
+                            }
+                        }
+                        // for i in nonce.iter(){ //find hash not in
+                        //     if self.blockchain.lock().unwrap().block_map.get(&i).is_none(){
+                        //         vec_hash.push(*i);
+                        //         // peer.write(Message::GetBlocks(nonce));
+                        //     }
+                        // }
+                        // if vec_hash.len() != 0{
+                            // println!("We got here first: {:?}", vec.len());
+                            peer.write(Message::GetBlocks(vec_hash));
+                        // }
+                    }
+                }
+                //receive hashes and reply Blocks.
+                Message::GetBlocks(blk) => {
+                    // debug!("GetBlocks: {:?}", blk);
+                    let blockchain = self.blockchain.lock().unwrap();
+                    let mut nonce = blk.clone();
+                    let mut vec = Vec::new();
+                    for i in 0..nonce.len() {
+                        let hash = nonce[i];
+                        if !blockchain.block_map.get(&hash).is_none() {
+                            // let blk = blockchain.block_map.get(&hash).unwrap().clone();
+                            vec.push(blockchain.block_map.get(&hash).unwrap().clone());
+                        }
+                    }
+                    if vec.len() != 0{
+                        //println!("We got here: {:?}", vec.len());
+                        peer.write(Message::Blocks(vec));
+                    }
+                        // for i in nonce.iter(){
+                        //     if !blockchain.block_map.get(&i).is_none(){
+                        //         // let temp = self.blockchain.lock().unwrap().map.get(&i).unwrap();
+                        //         // peer.write(Message::GetBlocks(nonce));
+                        //         vec.push(blockchain.block_map.get(&i).unwrap().clone());
+                        //     }
+                        // }
+                    // }
+                }
+                //insert block and broadcast block hashes
+                Message::Blocks(blk) => {
+                    // debug!("Blocks: {:?}", blk);
+                    let mut blockchain = self.blockchain.lock().unwrap();
+                    let mut nonce = blk.clone();
+                    // let mut vec_hash: Vec<H256> = Vec::new();
+                    for i in 0..nonce.len(){
+                        let blk_copy = &nonce[i];
+                        let hash =blk_copy.hash();
+                        if blockchain.block_map.get(&hash).is_none(){
+                            blockchain.insert(&blk_copy);
+                            // vec_hash.push(hash);
+                            // self.server.broadcast(Message::NewBlockHashes(vec_hash));
+                            self.server.broadcast(Message::NewBlockHashes(vec![hash]));
+                        }
+                    }
+                    // for i in nonce.iter(){ //iter?
+                    //     if blockchain.block_map.get(&i.hash()).is_none(){
+                    //         blockchain.insert(&i);
+                    //         vec_hash.push(hash);
+                    //         self.server.broadcast(Message::NewBlockHashes(vec_hash));
+                    //     }
+                    // }
+                }
+                _ => unimplemented!()
             }
         }
     }
@@ -90,9 +175,13 @@ impl TestMsgSender {
 fn generate_test_worker_and_start() -> (TestMsgSender, ServerTestReceiver, Vec<H256>) {
     let (server, server_receiver) = ServerHandle::new_for_test();
     let (test_msg_sender, msg_chan) = TestMsgSender::new();
-    let worker = Worker::new(1, msg_chan, &server);
+    
+    let blockchain = Blockchain::new();
+    let tip = blockchain.tip();
+    let blockchain_arc = &Arc::new(Mutex::new(blockchain));
+    let worker = Worker::new(1, msg_chan, &server, blockchain_arc);
     worker.start(); 
-    (test_msg_sender, server_receiver, vec![])
+    (test_msg_sender, server_receiver, vec![tip])
 }
 
 // DO NOT CHANGE THIS COMMENT, IT IS FOR AUTOGRADER. BEFORE TEST

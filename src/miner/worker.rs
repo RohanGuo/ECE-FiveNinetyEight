@@ -1,7 +1,9 @@
 use crossbeam::channel::{unbounded, Receiver, Sender, TryRecvError};
 use log::{debug, info};
-use crate::types::block::Block;
+use crate::network::message::Message;
+use crate::types::block::{Block, self};
 use crate::network::server::Handle as ServerHandle;
+use crate::types::hash::Hashable;
 use std::thread;
 use std::sync::{Arc, Mutex};
 use crate::blockchain::Blockchain;
@@ -41,8 +43,10 @@ impl Worker {
             let _block = self.finished_block_chan.recv().expect("Receive finished block error");
             // TODO for student: insert this finished block to blockchain, and broadcast this block hash
 
-            println!("7777");
             self.blockchain.lock().unwrap().insert(&_block);
+            let mut vec = Vec::new(); //change
+            vec.push(_block.hash()); // push hash vec
+            self.server.broadcast(Message::NewBlockHashes(vec));
         }
     }
 }

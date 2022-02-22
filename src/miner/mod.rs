@@ -98,9 +98,9 @@ impl Context {
 
     fn miner_loop(&mut self) {
         // main mining loop
-        let locked_parent = self.blockchain.lock().unwrap();
-        let mut parent = locked_parent.tip();
-        let difficulty =locked_parent.block_map[&parent].header.difficulty;
+        //let locked_parent = self.blockchain.lock().unwrap();
+        //let mut parent = locked_parent.tip();
+        //let difficulty =locked_parent.block_map[&parent].header.difficulty;
         
         loop {
             // check and react to control signals
@@ -151,11 +151,12 @@ impl Context {
             // TODO for student: actual mining, create a block
             // TODO for student: if block mining finished, you can have something like: self.finished_block_chan.send(block.clone()).expect("Send finished block error");
             
-            //let locked_parent = self.blockchain.lock().unwrap();
-            //let parent = locked_parent.tip();
-            let timestamp = SystemTime::now().duration_since(UNIX_EPOCH).unwrap().as_millis();
-            //let difficulty =locked_parent.block_map[&parent].header.difficulty;
+            let locked_parent = self.blockchain.lock().unwrap();
+            let mut parent = locked_parent.tip();
+            let difficulty =locked_parent.block_map[&parent].header.difficulty;
             // println!("{:?}", difficulty);
+
+            let timestamp = SystemTime::now().duration_since(UNIX_EPOCH).unwrap().as_millis();
             let signed_transactions:Vec<SignedTransaction> = Vec::new();
             let merkle_tree = MerkleTree::new(&signed_transactions);
             let merkle_root = merkle_tree.root();
