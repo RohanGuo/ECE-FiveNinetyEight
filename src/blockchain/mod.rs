@@ -15,14 +15,14 @@ impl Blockchain {
         pub fn new() -> Self {
             let mut rng = rand::thread_rng();
             let parent = [0; 32].into();
-            let nonce: u32 = rng.gen();
+            let nonce = 0u32;
             let signed_transactions = Vec::new();
-            let timestamp: u128 = std::time::SystemTime::now().duration_since(std::time::UNIX_EPOCH).unwrap().as_millis(); //系统时间
+            let timestamp = 0u128; //系统时间
 
             let merkle_tree = MerkleTree::new(&signed_transactions);
             let merkle_root: H256 = merkle_tree.root(); //也可以H256类型
 
-            let buffer: [u8; 32] = [255; 32];
+            let buffer: [u8; 32] = [2; 32];
             let difficulty: H256 = buffer.into(); //
 
             let header = Header{ parent: parent, nonce: nonce, difficulty: difficulty, timestamp: timestamp, merkle_root: merkle_root };
@@ -42,7 +42,6 @@ impl Blockchain {
         let block_hash = block.hash();
         self.block_map.insert(block_hash, block.clone());
         self.block_seq.insert(block_hash, self.block_seq[&parent] + 1);
-        println!("{:?} {:?}", block_hash, self.block_seq[&block_hash]);
         if self.block_seq[&block_hash] > self.block_seq[&self.tip] {
             self.tip = block_hash;
         }

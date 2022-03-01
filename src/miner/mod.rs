@@ -154,7 +154,7 @@ impl Context {
             let locked_parent = self.blockchain.lock().unwrap();
             let mut parent = locked_parent.tip();
             let difficulty =locked_parent.block_map[&parent].header.difficulty;
-            // println!("{:?}", difficulty);
+            // println!("{:?}", parent);
 
             let timestamp = SystemTime::now().duration_since(UNIX_EPOCH).unwrap().as_millis();
             let signed_transactions:Vec<SignedTransaction> = Vec::new();
@@ -181,11 +181,11 @@ impl Context {
             };
 
             if block.hash() <= difficulty {
-                println!("44444");
+                // println!("parent  1 {:?}", block.header.parent);
                 self.finished_block_chan.send(block.clone()).expect("Send finished block error");
                 //self.blockchain.lock().unwrap().insert(&block.clone());
-                parent = block.hash();
-                println!("miner {}",block.hash());
+                // parent = block.hash();
+                //println!("miner {}",block.hash());
             }
 
             if let OperatingState::Run(i) = self.operating_state {

@@ -43,6 +43,7 @@ impl Worker {
             let _block = self.finished_block_chan.recv().expect("Receive finished block error");
             // TODO for student: insert this finished block to blockchain, and broadcast this block hash
 
+            //println!("Miner Blocks: {:?}", _block);
             self.blockchain.lock().unwrap().insert(&_block);
             let mut vec = Vec::new(); //change
             vec.push(_block.hash()); // push hash vec

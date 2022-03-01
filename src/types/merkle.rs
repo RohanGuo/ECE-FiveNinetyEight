@@ -40,7 +40,7 @@ impl MerkleTree {
         }
         let start_index = node_size;
         node_size = node_size - 1 + input_len;
-        println!("node size {}", node_size);
+        //println!("node size {}", node_size);
         for i in 0..node_size + 1 {
             let mut node: Node = Node{val: data[0].hash(), parent: -1, left: -1, right: -1, is_empty: true};
             if i * 2 <= node_size {

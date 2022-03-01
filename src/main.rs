@@ -1,3 +1,4 @@
+
 #[cfg(test)]
 #[macro_use]
 extern crate hex_literal;
@@ -13,6 +14,7 @@ use clap::clap_app;
 use smol::channel;
 use log::{error, info};
 use api::Server as ApiServer;
+use std::collections::HashMap;
 use std::net;
 use std::process;
 use std::sync::{Arc, Mutex};
@@ -35,8 +37,7 @@ fn main() {
     // init logger
     let verbosity = matches.occurrences_of("verbose") as usize;
     stderrlog::new().verbosity(verbosity).init().unwrap();
-    let blockchain = Blockchain::new();
-    let blockchain = Arc::new(Mutex::new(blockchain));
+
     // parse p2p server address
     let p2p_addr = matches
         .value_of("peer_addr")
@@ -73,17 +74,22 @@ fn main() {
             error!("Error parsing P2P workers: {}", e);
             process::exit(1);
         });
+
+    let blockchain = Blockchain::new();
+    let blockchain = Arc::new(Mutex::new(blockchain));
+    let orph_buff = Arc::new(Mutex::new(HashMap::new())); //add
     let worker_ctx = network::worker::Worker::new(
         p2p_workers,
         msg_rx,
         &server,
         &blockchain,
+        &orph_buff, // add
     );
     worker_ctx.start();
 
     // start the miner
-    let blockchain = Blockchain::new();
-    let blockchain = Arc::new(Mutex::new(blockchain));
+    // let blockchain = Blockchain::new();
+    // let blockchain = Arc::new(Mutex::new(blockchain));
     let (miner_ctx, miner, finished_block_chan) = miner::new(&blockchain);
     let miner_worker_ctx = miner::worker::Worker::new(&server, finished_block_chan, &blockchain);
     miner_ctx.start();
@@ -135,3 +141,4 @@ fn main() {
         std::thread::park();
     }
 }
+
