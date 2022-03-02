@@ -22,7 +22,8 @@ impl Blockchain {
             let merkle_tree = MerkleTree::new(&signed_transactions);
             let merkle_root: H256 = merkle_tree.root(); //也可以H256类型
 
-            let buffer: [u8; 32] = [2; 32];
+            let mut buffer: [u8; 32] = [0; 32];
+            buffer[1] = 1u8;
             let difficulty: H256 = buffer.into(); //
 
             let header = Header{ parent: parent, nonce: nonce, difficulty: difficulty, timestamp: timestamp, merkle_root: merkle_root };
