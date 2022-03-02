@@ -23,7 +23,7 @@ impl Blockchain {
             let merkle_root: H256 = merkle_tree.root(); //也可以H256类型
 
             let mut buffer: [u8; 32] = [0; 32];
-            buffer[1] = 1u8;
+            buffer[2] = 50u8;
             let difficulty: H256 = buffer.into(); //
 
             let header = Header{ parent: parent, nonce: nonce, difficulty: difficulty, timestamp: timestamp, merkle_root: merkle_root };
