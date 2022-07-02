@@ -3,7 +3,8 @@ use crate::blockchain::Blockchain;
 use crate::miner::Handle as MinerHandle;
 use crate::network::server::Handle as NetworkServerHandle;
 use crate::network::message::Message;
-
+use crate::tx_generator::GeneratorHandle as TXGeneratorHandle;
+use std::convert::TryInto;
 use log::info;
 use std::collections::HashMap;
 use std::sync::{Arc, Mutex};
@@ -18,6 +19,7 @@ pub struct Server {
     miner: MinerHandle,
     network: NetworkServerHandle,
     blockchain: Arc<Mutex<Blockchain>>,
+    generator: TXGeneratorHandle,
 }
 
 #[derive(Serialize)]
@@ -53,6 +55,8 @@ impl Server {
         miner: &MinerHandle,
         network: &NetworkServerHandle,
         blockchain: &Arc<Mutex<Blockchain>>,
+        generator: &TXGeneratorHandle,
+
     ) {
         let handle = HTTPServer::http(&addr).unwrap();
         let server = Self {
@@ -60,12 +64,14 @@ impl Server {
             miner: miner.clone(),
             network: network.clone(),
             blockchain: Arc::clone(blockchain),
+            generator: generator.clone(),
         };
         thread::spawn(move || {
             for req in server.handle.incoming_requests() {
                 let miner = server.miner.clone();
                 let network = server.network.clone();
                 let blockchain = Arc::clone(&server.blockchain);
+                let generator = server.generator.clone();
                 thread::spawn(move || {
                     // a valid url requires a base
                     let base_url = Url::parse(&format!("http://{}/", &addr)).unwrap();
@@ -103,7 +109,63 @@ impl Server {
                         }
                         "/tx-generator/start" => {
                             // unimplemented!()
-                            respond_result!(req, false, "unimplemented!");
+                            let params = url.query_pairs();
+                            let params: HashMap<_, _> = params.into_owned().collect();
+                            let theta = match params.get("theta") {
+                                Some(v) => v,
+                                None => {
+                                    respond_result!(req, false, "missing theta");
+                                    return;
+                                }
+                            };
+                            let theta = match theta.parse::<u64>() {
+                                Ok(v) => v,
+                                Err(e) => {
+                                    respond_result!(
+                                        req,
+                                        false,
+                                        format!("error parsing theta: {}", e)
+                                    );
+                                    return;
+                                }
+                            };
+                            // println!("get generator start");
+                            generator.start(theta);
+                            respond_result!(req, true, "ok");  
+                            // respond_result!(req, false, "unimplemented!");
+                        }
+                        "/blockchain/state" => {
+                            // unimplemented!()
+                            let params = url.query_pairs();
+                            let params: HashMap<_, _> = params.into_owned().collect();
+                            let block = match params.get("block") {
+                                Some(v) => v,
+                                None => {
+                                    respond_result!(req, false, "missing block");
+                                    return;
+                                }
+                            };
+                            let block = match block.parse::<u64>() {
+                                Ok(v) => v,
+                                Err(e) => {
+                                    respond_result!(
+                                        req,
+                                        false,
+                                        format!("error parsing block: {}", e)
+                                    );
+                                    return;
+                                }
+                            };
+                            let blockchain = blockchain.lock().unwrap();
+                            let bc = blockchain.all_blocks_in_longest_chain();
+                            if block > bc.len().try_into().unwrap() {
+                                println!("longest block chain does have {} blocks", block);
+                                // respond_result!(req, false, "False!");
+                            }
+                            let index: usize = block.try_into().unwrap();
+                            let accounts_info = blockchain.get_accounts_by_block_number(bc[index]);
+                            respond_json!(req, accounts_info);                            
+                            // respond_result!(req, false, "unimplemented!");
                         }
                         "/network/ping" => {
                             network.broadcast(Message::Ping(String::from("Test ping")));
@@ -117,7 +179,11 @@ impl Server {
                         }
                         "/blockchain/longest-chain-tx" => {
                             // unimplemented!()
-                            respond_result!(req, false, "unimplemented!");
+                            // respond_result!(req, false, "unimplemented!");
+                            let blockchain = blockchain.lock().unwrap();
+                            let txs = blockchain.all_transactions_in_longest_chain();
+                            // let txs_string: Vec<Vec<String>> = txs.into_iter().map(|h|h.to_string()).collect();
+                            respond_json!(req, txs);
                         }
                         "/blockchain/longest-chain-tx-count" => {
                             // unimplemented!()

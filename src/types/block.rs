@@ -50,6 +50,14 @@ impl Block {
         //unimplemented!()
         self.header.difficulty
     }
+
+    pub fn get_transactions(&self) -> Vec<String> {
+        let mut txs: Vec<String> = Vec::new();
+        for trans in &self.content.content {
+            txs.push(trans.hash().to_string());
+        }
+        return txs;
+    }
 }
 
 #[cfg(any(test, test_utilities))]

@@ -8,18 +8,22 @@ pub mod blockchain;
 pub mod types;
 pub mod miner;
 pub mod network;
+pub mod tx_generator;
 
 use blockchain::Blockchain;
 use clap::clap_app;
 use smol::channel;
 use log::{error, info};
 use api::Server as ApiServer;
+use types::transaction::*;
 use std::collections::HashMap;
 use std::net;
 use std::process;
 use std::sync::{Arc, Mutex};
 use std::thread;
 use std::time;
+
+use types::transaction::TransactionMemopool;
 
 fn main() {
     // parse command line arguments
@@ -74,23 +78,25 @@ fn main() {
             error!("Error parsing P2P workers: {}", e);
             process::exit(1);
         });
-
-    let blockchain = Blockchain::new();
+    let address = generate_address();
+    let state = Arc::new(Mutex::new(State::new(address)));
+    let blockchain = Blockchain::new(&state);
     let blockchain = Arc::new(Mutex::new(blockchain));
-    let orph_buff = Arc::new(Mutex::new(HashMap::new())); //add
+    let orph_buff = Arc::new(Mutex::new(HashMap::new()));
+    let trans_memopool = Arc::new(Mutex::new(TransactionMemopool::new()));
     let worker_ctx = network::worker::Worker::new(
         p2p_workers,
         msg_rx,
         &server,
         &blockchain,
-        &orph_buff, // add
+        &orph_buff,
+        &trans_memopool,
+        &state,
     );
     worker_ctx.start();
 
     // start the miner
-    // let blockchain = Blockchain::new();
-    // let blockchain = Arc::new(Mutex::new(blockchain));
-    let (miner_ctx, miner, finished_block_chan) = miner::new(&blockchain);
+    let (miner_ctx, miner, finished_block_chan) = miner::new(&blockchain, &trans_memopool, &state);
     let miner_worker_ctx = miner::worker::Worker::new(&server, finished_block_chan, &blockchain);
     miner_ctx.start();
     miner_worker_ctx.start();
@@ -129,12 +135,16 @@ fn main() {
     }
 
 
+    let (generator_ctx, generator) = tx_generator::new(&server, &state, address);
+    generator_ctx.start();
+
     // start the API server
     ApiServer::start(
         api_addr,
         &miner,
         &server,
         &blockchain,
+        &generator,
     );
 
     loop {
