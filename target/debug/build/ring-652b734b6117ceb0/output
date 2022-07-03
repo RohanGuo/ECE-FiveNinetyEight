@@ -1,0 +1,339 @@
+ALLUSERSPROFILE: C:\ProgramData
+APPDATA: C:\Users\Administrator\AppData\Roaming
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL: 1
+CARGO: \\?\C:\Users\Administrator\.rustup\toolchains\stable-x86_64-pc-windows-msvc\bin\cargo.exe
+CARGO_CFG_TARGET_ARCH: x86_64
+CARGO_CFG_TARGET_ENDIAN: little
+CARGO_CFG_TARGET_ENV: msvc
+CARGO_CFG_TARGET_FAMILY: windows
+CARGO_CFG_TARGET_FEATURE: fxsr,sse,sse2
+CARGO_CFG_TARGET_OS: windows
+CARGO_CFG_TARGET_POINTER_WIDTH: 64
+CARGO_CFG_TARGET_VENDOR: pc
+CARGO_CFG_WINDOWS: 
+CARGO_ENCODED_RUSTFLAGS: 
+CARGO_FEATURE_ALLOC: 1
+CARGO_FEATURE_DEFAULT: 1
+CARGO_FEATURE_DEV_URANDOM_FALLBACK: 1
+CARGO_FEATURE_LAZY_STATIC: 1
+CARGO_HOME: C:\Users\Administrator\.cargo
+CARGO_MAKEFLAGS: -j --jobserver-fds=__rust_jobserver_semaphore_2640190782 --jobserver-auth=__rust_jobserver_semaphore_2640190782
+CARGO_MANIFEST_DIR: C:\Users\Administrator\.cargo\registry\src\github.com-1ecc6299db9ec823\ring-0.16.9
+CARGO_MANIFEST_LINKS: ring-asm
+CARGO_PKG_AUTHORS: Brian Smith <brian@briansmith.org>
+CARGO_PKG_DESCRIPTION: Safe, fast, small crypto using Rust.
+CARGO_PKG_HOMEPAGE: 
+CARGO_PKG_LICENSE: 
+CARGO_PKG_LICENSE_FILE: LICENSE
+CARGO_PKG_NAME: ring
+CARGO_PKG_REPOSITORY: https://github.com/briansmith/ring
+CARGO_PKG_VERSION: 0.16.9
+CARGO_PKG_VERSION_MAJOR: 0
+CARGO_PKG_VERSION_MINOR: 16
+CARGO_PKG_VERSION_PATCH: 9
+CARGO_PKG_VERSION_PRE: 
+CHROME_CRASHPAD_PIPE_NAME: \\.\pipe\crashpad_11196_YFSPRGJFELVHXBIS
+COMMONPROGRAMFILES: C:\Program Files\Common Files
+COMMONPROGRAMFILES(X86): C:\Program Files (x86)\Common Files
+COMMONPROGRAMW6432: C:\Program Files\Common Files
+COMPUTERNAME: PC-20210813WDAI
+COMSPEC: C:\Windows\system32\cmd.exe
+DEBUG: true
+DEVMGR_SHOW_DETAILS: 1
+DRIVERDATA: C:\Windows\System32\Drivers\DriverData
+ELECTRON_RUN_AS_NODE: 1
+FPS_BROWSER_APP_PROFILE_STRING: Internet Explorer
+FPS_BROWSER_USER_PROFILE_STRING: Default
+HOMEDRIVE: C:
+HOMEPATH: \Users\Administrator
+HOST: x86_64-pc-windows-msvc
+LD_LIBRARY_PATH: C:\Users\Administrator\.rustup\toolchains\stable-x86_64-pc-windows-msvc\lib
+LOCALAPPDATA: C:\Users\Administrator\AppData\Local
+LOGONSERVER: \\PC-20210813WDAI
+NUMBER_OF_PROCESSORS: 4
+NUM_JOBS: 4
+ONEDRIVE: C:\Users\Administrator\OneDrive
+OPT_LEVEL: 0
+ORIGINAL_XDG_CURRENT_DESKTOP: undefined
+OS: Windows_NT
+OUT_DIR: d:\2-UIUC\ECE-598-blockchain\ece-598-pv-sp-2022-yuyangx5\target\debug\build\ring-652b734b6117ceb0\out
+PATH: d:\2-UIUC\ECE-598-blockchain\ece-598-pv-sp-2022-yuyangx5\target\debug\deps;d:\2-UIUC\ECE-598-blockchain\ece-598-pv-sp-2022-yuyangx5\target\debug;C:\Users\Administrator\.rustup\toolchains\stable-x86_64-pc-windows-msvc\lib\rustlib\x86_64-pc-windows-msvc\lib;C:\Users\Administrator\.cargo\bin;C:\Users\Administrator\.rustup\toolchains\stable-x86_64-pc-windows-msvc\bin;e:\ProgramData\Anaconda3;e:\ProgramData\Anaconda3\Library\mingw-w64\bin;e:\ProgramData\Anaconda3\Library\usr\bin;e:\ProgramData\Anaconda3\Library\bin;e:\ProgramData\Anaconda3\Scripts;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;e:\Program Files\MATLAB\R2015a\bin;e:\Program Files\MATLAB\R2014b\runtime\win64;e:\Program Files\MATLAB\R2014b\bin;e:\Program Files\MATLAB\R2014b\polyspace\bin;E:\Program Files\Git\cmd;E:\Users\Administrator\AppData\Local\Programs\Python\Python38\Scripts\;E:\Users\Administrator\AppData\Local\Programs\Python\Python38\;C:\Users\Administrator\.cargo\bin;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;e:\Program Files\Bandizip\;E:\Users\Administrator\AppData\Local\Programs\Microsoft VS Code\bin
+PATHEXT: .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+PROCESSOR_ARCHITECTURE: AMD64
+PROCESSOR_IDENTIFIER: Intel64 Family 6 Model 142 Stepping 9, GenuineIntel
+PROCESSOR_LEVEL: 6
+PROCESSOR_REVISION: 8e09
+PROFILE: debug
+PROGRAMDATA: C:\ProgramData
+PROGRAMFILES: C:\Program Files
+PROGRAMFILES(X86): C:\Program Files (x86)
+PROGRAMW6432: C:\Program Files
+PSMODULEPATH: C:\Program Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules
+PUBLIC: C:\Users\Public
+RA_RUSTC_WRAPPER: 1
+RUSTC: rustc
+RUSTC_WRAPPER: c:\Users\Administrator\.vscode\extensions\matklad.rust-analyzer-0.2.932\server\rust-analyzer.exe
+RUSTDOC: rustdoc
+RUSTUP_HOME: C:\Users\Administrator\.rustup
+RUSTUP_TOOLCHAIN: stable-x86_64-pc-windows-msvc
+RUST_BACKTRACE: short
+RUST_RECURSION_COUNT: 1
+SESSIONNAME: Console
+SYSTEMDRIVE: C:
+SYSTEMROOT: C:\Windows
+TARGET: x86_64-pc-windows-msvc
+TEMP: C:\Users\ADMINI~1\AppData\Local\Temp
+TMP: C:\Users\ADMINI~1\AppData\Local\Temp
+USERDOMAIN: PC-20210813WDAI
+USERDOMAIN_ROAMINGPROFILE: PC-20210813WDAI
+USERNAME: Administrator
+USERPROFILE: C:\Users\Administrator
+VSCODE_AMD_ENTRYPOINT: vs/workbench/services/extensions/node/extensionHostProcess
+VSCODE_CODE_CACHE_PATH: C:\Users\Administrator\AppData\Roaming\Code\CachedData\5554b12acf27056905806867f251c859323ff7e9
+VSCODE_CWD: D:\2-UIUC\ECE 448\MP2\mp2-template
+VSCODE_HANDLES_UNCAUGHT_ERRORS: true
+VSCODE_IPC_HOOK: \\.\pipe\9e7283c68e6159fd1e9872b65f264be5-1.64.0-main-sock
+VSCODE_IPC_HOOK_EXTHOST: \\.\pipe\vscode-ipc-40567a31-687f-4cd5-9312-d63e78588c1b-sock
+VSCODE_LOG_NATIVE: false
+VSCODE_LOG_STACK: false
+VSCODE_NLS_CONFIG: {"locale":"zh-cn","availableLanguages":{},"_languagePackSupport":true}
+VSCODE_PID: 11196
+VSCODE_PIPE_LOGGING: true
+VSCODE_VERBOSE_LOGGING: true
+WINDIR: C:\Windows
+_NT_SYMBOL_PATH: c:\Users\Administrator\.vscode\extensions\matklad.rust-analyzer-0.2.932\server
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-pc-windows-msvc")
+HOST = Some("x86_64-pc-windows-msvc")
+CC_x86_64-pc-windows-msvc = None
+CC_x86_64_pc_windows_msvc = None
+HOST_CC = None
+CC = None
+CFLAGS_x86_64-pc-windows-msvc = None
+CFLAGS_x86_64_pc_windows_msvc = None
+HOST_CFLAGS = None
+CFLAGS = None
+CRATE_CC_NO_DEFAULTS = None
+CARGO_CFG_TARGET_FEATURE = Some("fxsr,sse,sse2")
+DEBUG = Some("true")
+running "E:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\cl.exe" "-nologo" "-MD" "-Z7" "-Brepro" "-I" "include" "-W4" "/GS" "/Gy" "/EHsc" "/GR-" "/Zc:wchar_t" "/Zc:forScope" "/Zc:inline" "/Zc:rvalueCast" "/sdl" "/Wall" "/wd4127" "/wd4464" "/wd4514" "/wd4710" "/wd4711" "/wd4820" "/wd5045" "/Od" "/RTCsu" "-DNDEBUG" "-c" "/Fod:\\2-UIUC\\ECE-598-blockchain\\ece-598-pv-sp-2022-yuyangx5\\target\\debug\\build\\ring-652b734b6117ceb0\\out\\generic.obj" "crypto/fipsmodule/bn/generic.c"
+generic.c
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-pc-windows-msvc")
+HOST = Some("x86_64-pc-windows-msvc")
+CC_x86_64-pc-windows-msvc = None
+CC_x86_64_pc_windows_msvc = None
+HOST_CC = None
+CC = None
+CFLAGS_x86_64-pc-windows-msvc = None
+CFLAGS_x86_64_pc_windows_msvc = None
+HOST_CFLAGS = None
+CFLAGS = None
+CRATE_CC_NO_DEFAULTS = None
+CARGO_CFG_TARGET_FEATURE = Some("fxsr,sse,sse2")
+DEBUG = Some("true")
+running "E:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\cl.exe" "-nologo" "-MD" "-Z7" "-Brepro" "-I" "include" "-W4" "/GS" "/Gy" "/EHsc" "/GR-" "/Zc:wchar_t" "/Zc:forScope" "/Zc:inline" "/Zc:rvalueCast" "/sdl" "/Wall" "/wd4127" "/wd4464" "/wd4514" "/wd4710" "/wd4711" "/wd4820" "/wd5045" "/Od" "/RTCsu" "-DNDEBUG" "-c" "/Fod:\\2-UIUC\\ECE-598-blockchain\\ece-598-pv-sp-2022-yuyangx5\\target\\debug\\build\\ring-652b734b6117ceb0\\out\\montgomery.obj" "crypto/fipsmodule/bn/montgomery.c"
+montgomery.c
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-pc-windows-msvc")
+HOST = Some("x86_64-pc-windows-msvc")
+CC_x86_64-pc-windows-msvc = None
+CC_x86_64_pc_windows_msvc = None
+HOST_CC = None
+CC = None
+CFLAGS_x86_64-pc-windows-msvc = None
+CFLAGS_x86_64_pc_windows_msvc = None
+HOST_CFLAGS = None
+CFLAGS = None
+CRATE_CC_NO_DEFAULTS = None
+CARGO_CFG_TARGET_FEATURE = Some("fxsr,sse,sse2")
+DEBUG = Some("true")
+running "E:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\cl.exe" "-nologo" "-MD" "-Z7" "-Brepro" "-I" "include" "-W4" "/GS" "/Gy" "/EHsc" "/GR-" "/Zc:wchar_t" "/Zc:forScope" "/Zc:inline" "/Zc:rvalueCast" "/sdl" "/Wall" "/wd4127" "/wd4464" "/wd4514" "/wd4710" "/wd4711" "/wd4820" "/wd5045" "/Od" "/RTCsu" "-DNDEBUG" "-c" "/Fod:\\2-UIUC\\ECE-598-blockchain\\ece-598-pv-sp-2022-yuyangx5\\target\\debug\\build\\ring-652b734b6117ceb0\\out\\montgomery_inv.obj" "crypto/fipsmodule/bn/montgomery_inv.c"
+montgomery_inv.c
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-pc-windows-msvc")
+HOST = Some("x86_64-pc-windows-msvc")
+CC_x86_64-pc-windows-msvc = None
+CC_x86_64_pc_windows_msvc = None
+HOST_CC = None
+CC = None
+CFLAGS_x86_64-pc-windows-msvc = None
+CFLAGS_x86_64_pc_windows_msvc = None
+HOST_CFLAGS = None
+CFLAGS = None
+CRATE_CC_NO_DEFAULTS = None
+CARGO_CFG_TARGET_FEATURE = Some("fxsr,sse,sse2")
+DEBUG = Some("true")
+running "E:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\cl.exe" "-nologo" "-MD" "-Z7" "-Brepro" "-I" "include" "-W4" "/GS" "/Gy" "/EHsc" "/GR-" "/Zc:wchar_t" "/Zc:forScope" "/Zc:inline" "/Zc:rvalueCast" "/sdl" "/Wall" "/wd4127" "/wd4464" "/wd4514" "/wd4710" "/wd4711" "/wd4820" "/wd5045" "/Od" "/RTCsu" "-DNDEBUG" "-c" "/Fod:\\2-UIUC\\ECE-598-blockchain\\ece-598-pv-sp-2022-yuyangx5\\target\\debug\\build\\ring-652b734b6117ceb0\\out\\crypto.obj" "crypto/crypto.c"
+crypto.c
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-pc-windows-msvc")
+HOST = Some("x86_64-pc-windows-msvc")
+CC_x86_64-pc-windows-msvc = None
+CC_x86_64_pc_windows_msvc = None
+HOST_CC = None
+CC = None
+CFLAGS_x86_64-pc-windows-msvc = None
+CFLAGS_x86_64_pc_windows_msvc = None
+HOST_CFLAGS = None
+CFLAGS = None
+CRATE_CC_NO_DEFAULTS = None
+CARGO_CFG_TARGET_FEATURE = Some("fxsr,sse,sse2")
+DEBUG = Some("true")
+running "E:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\cl.exe" "-nologo" "-MD" "-Z7" "-Brepro" "-I" "include" "-W4" "/GS" "/Gy" "/EHsc" "/GR-" "/Zc:wchar_t" "/Zc:forScope" "/Zc:inline" "/Zc:rvalueCast" "/sdl" "/Wall" "/wd4127" "/wd4464" "/wd4514" "/wd4710" "/wd4711" "/wd4820" "/wd5045" "/Od" "/RTCsu" "-DNDEBUG" "-c" "/Fod:\\2-UIUC\\ECE-598-blockchain\\ece-598-pv-sp-2022-yuyangx5\\target\\debug\\build\\ring-652b734b6117ceb0\\out\\ecp_nistz.obj" "crypto/fipsmodule/ec/ecp_nistz.c"
+ecp_nistz.c
+C:\Users\Administrator\.cargo\registry\src\github.com-1ecc6299db9ec823\ring-0.16.9\crypto\fipsmodule\ec\ecp_nistz.h(1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-pc-windows-msvc")
+HOST = Some("x86_64-pc-windows-msvc")
+CC_x86_64-pc-windows-msvc = None
+CC_x86_64_pc_windows_msvc = None
+HOST_CC = None
+CC = None
+CFLAGS_x86_64-pc-windows-msvc = None
+CFLAGS_x86_64_pc_windows_msvc = None
+HOST_CFLAGS = None
+CFLAGS = None
+CRATE_CC_NO_DEFAULTS = None
+CARGO_CFG_TARGET_FEATURE = Some("fxsr,sse,sse2")
+DEBUG = Some("true")
+running "E:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\cl.exe" "-nologo" "-MD" "-Z7" "-Brepro" "-I" "include" "-W4" "/GS" "/Gy" "/EHsc" "/GR-" "/Zc:wchar_t" "/Zc:forScope" "/Zc:inline" "/Zc:rvalueCast" "/sdl" "/Wall" "/wd4127" "/wd4464" "/wd4514" "/wd4710" "/wd4711" "/wd4820" "/wd5045" "/Od" "/RTCsu" "-DNDEBUG" "-c" "/Fod:\\2-UIUC\\ECE-598-blockchain\\ece-598-pv-sp-2022-yuyangx5\\target\\debug\\build\\ring-652b734b6117ceb0\\out\\ecp_nistz256.obj" "crypto/fipsmodule/ec/ecp_nistz256.c"
+ecp_nistz256.c
+C:\Users\Administrator\.cargo\registry\src\github.com-1ecc6299db9ec823\ring-0.16.9\crypto\fipsmodule\ec\ecp_nistz.h(1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-pc-windows-msvc")
+HOST = Some("x86_64-pc-windows-msvc")
+CC_x86_64-pc-windows-msvc = None
+CC_x86_64_pc_windows_msvc = None
+HOST_CC = None
+CC = None
+CFLAGS_x86_64-pc-windows-msvc = None
+CFLAGS_x86_64_pc_windows_msvc = None
+HOST_CFLAGS = None
+CFLAGS = None
+CRATE_CC_NO_DEFAULTS = None
+CARGO_CFG_TARGET_FEATURE = Some("fxsr,sse,sse2")
+DEBUG = Some("true")
+running "E:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\cl.exe" "-nologo" "-MD" "-Z7" "-Brepro" "-I" "include" "-W4" "/GS" "/Gy" "/EHsc" "/GR-" "/Zc:wchar_t" "/Zc:forScope" "/Zc:inline" "/Zc:rvalueCast" "/sdl" "/Wall" "/wd4127" "/wd4464" "/wd4514" "/wd4710" "/wd4711" "/wd4820" "/wd5045" "/Od" "/RTCsu" "-DNDEBUG" "-c" "/Fod:\\2-UIUC\\ECE-598-blockchain\\ece-598-pv-sp-2022-yuyangx5\\target\\debug\\build\\ring-652b734b6117ceb0\\out\\gfp_p256.obj" "crypto/fipsmodule/ec/gfp_p256.c"
+gfp_p256.c
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-pc-windows-msvc")
+HOST = Some("x86_64-pc-windows-msvc")
+CC_x86_64-pc-windows-msvc = None
+CC_x86_64_pc_windows_msvc = None
+HOST_CC = None
+CC = None
+CFLAGS_x86_64-pc-windows-msvc = None
+CFLAGS_x86_64_pc_windows_msvc = None
+HOST_CFLAGS = None
+CFLAGS = None
+CRATE_CC_NO_DEFAULTS = None
+CARGO_CFG_TARGET_FEATURE = Some("fxsr,sse,sse2")
+DEBUG = Some("true")
+running "E:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\cl.exe" "-nologo" "-MD" "-Z7" "-Brepro" "-I" "include" "-W4" "/GS" "/Gy" "/EHsc" "/GR-" "/Zc:wchar_t" "/Zc:forScope" "/Zc:inline" "/Zc:rvalueCast" "/sdl" "/Wall" "/wd4127" "/wd4464" "/wd4514" "/wd4710" "/wd4711" "/wd4820" "/wd5045" "/Od" "/RTCsu" "-DNDEBUG" "-c" "/Fod:\\2-UIUC\\ECE-598-blockchain\\ece-598-pv-sp-2022-yuyangx5\\target\\debug\\build\\ring-652b734b6117ceb0\\out\\gfp_p384.obj" "crypto/fipsmodule/ec/gfp_p384.c"
+gfp_p384.c
+C:\Users\Administrator\.cargo\registry\src\github.com-1ecc6299db9ec823\ring-0.16.9\crypto\fipsmodule\ec\ecp_nistz.h(1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-pc-windows-msvc")
+HOST = Some("x86_64-pc-windows-msvc")
+CC_x86_64-pc-windows-msvc = None
+CC_x86_64_pc_windows_msvc = None
+HOST_CC = None
+CC = None
+CFLAGS_x86_64-pc-windows-msvc = None
+CFLAGS_x86_64_pc_windows_msvc = None
+HOST_CFLAGS = None
+CFLAGS = None
+CRATE_CC_NO_DEFAULTS = None
+CARGO_CFG_TARGET_FEATURE = Some("fxsr,sse,sse2")
+DEBUG = Some("true")
+running "E:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\cl.exe" "-nologo" "-MD" "-Z7" "-Brepro" "-I" "include" "-W4" "/GS" "/Gy" "/EHsc" "/GR-" "/Zc:wchar_t" "/Zc:forScope" "/Zc:inline" "/Zc:rvalueCast" "/sdl" "/Wall" "/wd4127" "/wd4464" "/wd4514" "/wd4710" "/wd4711" "/wd4820" "/wd5045" "/Od" "/RTCsu" "-DNDEBUG" "-c" "/Fod:\\2-UIUC\\ECE-598-blockchain\\ece-598-pv-sp-2022-yuyangx5\\target\\debug\\build\\ring-652b734b6117ceb0\\out\\limbs.obj" "crypto/limbs/limbs.c"
+limbs.c
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-pc-windows-msvc")
+HOST = Some("x86_64-pc-windows-msvc")
+CC_x86_64-pc-windows-msvc = None
+CC_x86_64_pc_windows_msvc = None
+HOST_CC = None
+CC = None
+CFLAGS_x86_64-pc-windows-msvc = None
+CFLAGS_x86_64_pc_windows_msvc = None
+HOST_CFLAGS = None
+CFLAGS = None
+CRATE_CC_NO_DEFAULTS = None
+CARGO_CFG_TARGET_FEATURE = Some("fxsr,sse,sse2")
+DEBUG = Some("true")
+running "E:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\cl.exe" "-nologo" "-MD" "-Z7" "-Brepro" "-I" "include" "-W4" "/GS" "/Gy" "/EHsc" "/GR-" "/Zc:wchar_t" "/Zc:forScope" "/Zc:inline" "/Zc:rvalueCast" "/sdl" "/Wall" "/wd4127" "/wd4464" "/wd4514" "/wd4710" "/wd4711" "/wd4820" "/wd5045" "/Od" "/RTCsu" "-DNDEBUG" "-c" "/Fod:\\2-UIUC\\ECE-598-blockchain\\ece-598-pv-sp-2022-yuyangx5\\target\\debug\\build\\ring-652b734b6117ceb0\\out\\mem.obj" "crypto/mem.c"
+mem.c
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-pc-windows-msvc")
+HOST = Some("x86_64-pc-windows-msvc")
+CC_x86_64-pc-windows-msvc = None
+CC_x86_64_pc_windows_msvc = None
+HOST_CC = None
+CC = None
+CFLAGS_x86_64-pc-windows-msvc = None
+CFLAGS_x86_64_pc_windows_msvc = None
+HOST_CFLAGS = None
+CFLAGS = None
+CRATE_CC_NO_DEFAULTS = None
+CARGO_CFG_TARGET_FEATURE = Some("fxsr,sse,sse2")
+DEBUG = Some("true")
+running "E:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\cl.exe" "-nologo" "-MD" "-Z7" "-Brepro" "-I" "include" "-W4" "/GS" "/Gy" "/EHsc" "/GR-" "/Zc:wchar_t" "/Zc:forScope" "/Zc:inline" "/Zc:rvalueCast" "/sdl" "/Wall" "/wd4127" "/wd4464" "/wd4514" "/wd4710" "/wd4711" "/wd4820" "/wd5045" "/Od" "/RTCsu" "-DNDEBUG" "-c" "/Fod:\\2-UIUC\\ECE-598-blockchain\\ece-598-pv-sp-2022-yuyangx5\\target\\debug\\build\\ring-652b734b6117ceb0\\out\\gcm.obj" "crypto/fipsmodule/modes/gcm.c"
+gcm.c
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-pc-windows-msvc")
+HOST = Some("x86_64-pc-windows-msvc")
+CC_x86_64-pc-windows-msvc = None
+CC_x86_64_pc_windows_msvc = None
+HOST_CC = None
+CC = None
+CFLAGS_x86_64-pc-windows-msvc = None
+CFLAGS_x86_64_pc_windows_msvc = None
+HOST_CFLAGS = None
+CFLAGS = None
+CRATE_CC_NO_DEFAULTS = None
+CARGO_CFG_TARGET_FEATURE = Some("fxsr,sse,sse2")
+DEBUG = Some("true")
+running "E:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\cl.exe" "-nologo" "-MD" "-Z7" "-Brepro" "-I" "include" "-W4" "/GS" "/Gy" "/EHsc" "/GR-" "/Zc:wchar_t" "/Zc:forScope" "/Zc:inline" "/Zc:rvalueCast" "/sdl" "/Wall" "/wd4127" "/wd4464" "/wd4514" "/wd4710" "/wd4711" "/wd4820" "/wd5045" "/Od" "/RTCsu" "-DNDEBUG" "-c" "/Fod:\\2-UIUC\\ECE-598-blockchain\\ece-598-pv-sp-2022-yuyangx5\\target\\debug\\build\\ring-652b734b6117ceb0\\out\\curve25519.obj" "third_party/fiat/curve25519.c"
+curve25519.c
+C:\Users\Administrator\.cargo\registry\src\github.com-1ecc6299db9ec823\ring-0.16.9\third_party\fiat\./curve25519_tables.h(1): warning C4819: 该文件包含不能在当前代码页(936)中表示的字符。请将该文件保存为 Unicode 格式以防止数据丢失
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-pc-windows-msvc")
+HOST = Some("x86_64-pc-windows-msvc")
+CC_x86_64-pc-windows-msvc = None
+CC_x86_64_pc_windows_msvc = None
+HOST_CC = None
+CC = None
+CFLAGS_x86_64-pc-windows-msvc = None
+CFLAGS_x86_64_pc_windows_msvc = None
+HOST_CFLAGS = None
+CFLAGS = None
+CRATE_CC_NO_DEFAULTS = None
+CARGO_CFG_TARGET_FEATURE = Some("fxsr,sse,sse2")
+DEBUG = Some("true")
+running "E:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\cl.exe" "-nologo" "-MD" "-Z7" "-Brepro" "-I" "include" "-W4" "/GS" "/Gy" "/EHsc" "/GR-" "/Zc:wchar_t" "/Zc:forScope" "/Zc:inline" "/Zc:rvalueCast" "/sdl" "/Wall" "/wd4127" "/wd4464" "/wd4514" "/wd4710" "/wd4711" "/wd4820" "/wd5045" "/Od" "/RTCsu" "-DNDEBUG" "-c" "/Fod:\\2-UIUC\\ECE-598-blockchain\\ece-598-pv-sp-2022-yuyangx5\\target\\debug\\build\\ring-652b734b6117ceb0\\out\\cpu-intel.obj" "crypto/cpu-intel.c"
+cpu-intel.c
+running: "E:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\lib.exe" "-out:d:\\2-UIUC\\ECE-598-blockchain\\ece-598-pv-sp-2022-yuyangx5\\target\\debug\\build\\ring-652b734b6117ceb0\\out\\libring-core.a" "-nologo" "C:\\Users\\Administrator\\.cargo\\registry\\src\\github.com-1ecc6299db9ec823\\ring-0.16.9\\pregenerated\\aes-x86_64-nasm.obj" "C:\\Users\\Administrator\\.cargo\\registry\\src\\github.com-1ecc6299db9ec823\\ring-0.16.9\\pregenerated\\aesni-x86_64-nasm.obj" "C:\\Users\\Administrator\\.cargo\\registry\\src\\github.com-1ecc6299db9ec823\\ring-0.16.9\\pregenerated\\vpaes-x86_64-nasm.obj" "C:\\Users\\Administrator\\.cargo\\registry\\src\\github.com-1ecc6299db9ec823\\ring-0.16.9\\pregenerated\\x86_64-mont-nasm.obj" "C:\\Users\\Administrator\\.cargo\\registry\\src\\github.com-1ecc6299db9ec823\\ring-0.16.9\\pregenerated\\x86_64-mont5-nasm.obj" "C:\\Users\\Administrator\\.cargo\\registry\\src\\github.com-1ecc6299db9ec823\\ring-0.16.9\\pregenerated\\chacha-x86_64-nasm.obj" "C:\\Users\\Administrator\\.cargo\\registry\\src\\github.com-1ecc6299db9ec823\\ring-0.16.9\\pregenerated\\p256-x86_64-asm-nasm.obj" "C:\\Users\\Administrator\\.cargo\\registry\\src\\github.com-1ecc6299db9ec823\\ring-0.16.9\\pregenerated\\aesni-gcm-x86_64-nasm.obj" "C:\\Users\\Administrator\\.cargo\\registry\\src\\github.com-1ecc6299db9ec823\\ring-0.16.9\\pregenerated\\ghash-x86_64-nasm.obj" "C:\\Users\\Administrator\\.cargo\\registry\\src\\github.com-1ecc6299db9ec823\\ring-0.16.9\\pregenerated\\poly1305-x86_64-nasm.obj" "C:\\Users\\Administrator\\.cargo\\registry\\src\\github.com-1ecc6299db9ec823\\ring-0.16.9\\pregenerated\\sha512-x86_64-nasm.obj" "C:\\Users\\Administrator\\.cargo\\registry\\src\\github.com-1ecc6299db9ec823\\ring-0.16.9\\pregenerated\\sha256-x86_64-nasm.obj" "d:\\2-UIUC\\ECE-598-blockchain\\ece-598-pv-sp-2022-yuyangx5\\target\\debug\\build\\ring-652b734b6117ceb0\\out\\generic.obj" "d:\\2-UIUC\\ECE-598-blockchain\\ece-598-pv-sp-2022-yuyangx5\\target\\debug\\build\\ring-652b734b6117ceb0\\out\\montgomery.obj" "d:\\2-UIUC\\ECE-598-blockchain\\ece-598-pv-sp-2022-yuyangx5\\target\\debug\\build\\ring-652b734b6117ceb0\\out\\montgomery_inv.obj" "d:\\2-UIUC\\ECE-598-blockchain\\ece-598-pv-sp-2022-yuyangx5\\target\\debug\\build\\ring-652b734b6117ceb0\\out\\crypto.obj" "d:\\2-UIUC\\ECE-598-blockchain\\ece-598-pv-sp-2022-yuyangx5\\target\\debug\\build\\ring-652b734b6117ceb0\\out\\ecp_nistz.obj" "d:\\2-UIUC\\ECE-598-blockchain\\ece-598-pv-sp-2022-yuyangx5\\target\\debug\\build\\ring-652b734b6117ceb0\\out\\ecp_nistz256.obj" "d:\\2-UIUC\\ECE-598-blockchain\\ece-598-pv-sp-2022-yuyangx5\\target\\debug\\build\\ring-652b734b6117ceb0\\out\\gfp_p256.obj" "d:\\2-UIUC\\ECE-598-blockchain\\ece-598-pv-sp-2022-yuyangx5\\target\\debug\\build\\ring-652b734b6117ceb0\\out\\gfp_p384.obj" "d:\\2-UIUC\\ECE-598-blockchain\\ece-598-pv-sp-2022-yuyangx5\\target\\debug\\build\\ring-652b734b6117ceb0\\out\\limbs.obj" "d:\\2-UIUC\\ECE-598-blockchain\\ece-598-pv-sp-2022-yuyangx5\\target\\debug\\build\\ring-652b734b6117ceb0\\out\\mem.obj" "d:\\2-UIUC\\ECE-598-blockchain\\ece-598-pv-sp-2022-yuyangx5\\target\\debug\\build\\ring-652b734b6117ceb0\\out\\gcm.obj" "d:\\2-UIUC\\ECE-598-blockchain\\ece-598-pv-sp-2022-yuyangx5\\target\\debug\\build\\ring-652b734b6117ceb0\\out\\curve25519.obj" "d:\\2-UIUC\\ECE-598-blockchain\\ece-598-pv-sp-2022-yuyangx5\\target\\debug\\build\\ring-652b734b6117ceb0\\out\\cpu-intel.obj"
+exit code: 0
+cargo:rustc-link-lib=static=ring-core
+OPT_LEVEL = Some("0")
+TARGET = Some("x86_64-pc-windows-msvc")
+HOST = Some("x86_64-pc-windows-msvc")
+CC_x86_64-pc-windows-msvc = None
+CC_x86_64_pc_windows_msvc = None
+HOST_CC = None
+CC = None
+CFLAGS_x86_64-pc-windows-msvc = None
+CFLAGS_x86_64_pc_windows_msvc = None
+HOST_CFLAGS = None
+CFLAGS = None
+CRATE_CC_NO_DEFAULTS = None
+CARGO_CFG_TARGET_FEATURE = Some("fxsr,sse,sse2")
+DEBUG = Some("true")
+running "E:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\cl.exe" "-nologo" "-MD" "-Z7" "-Brepro" "-I" "include" "-W4" "/GS" "/Gy" "/EHsc" "/GR-" "/Zc:wchar_t" "/Zc:forScope" "/Zc:inline" "/Zc:rvalueCast" "/sdl" "/Wall" "/wd4127" "/wd4464" "/wd4514" "/wd4710" "/wd4711" "/wd4820" "/wd5045" "/Od" "/RTCsu" "-DNDEBUG" "-c" "/Fod:\\2-UIUC\\ECE-598-blockchain\\ece-598-pv-sp-2022-yuyangx5\\target\\debug\\build\\ring-652b734b6117ceb0\\out\\constant_time_test.obj" "crypto/constant_time_test.c"
+constant_time_test.c
+running: "E:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\BuildTools\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\lib.exe" "-out:d:\\2-UIUC\\ECE-598-blockchain\\ece-598-pv-sp-2022-yuyangx5\\target\\debug\\build\\ring-652b734b6117ceb0\\out\\libring-test.a" "-nologo" "d:\\2-UIUC\\ECE-598-blockchain\\ece-598-pv-sp-2022-yuyangx5\\target\\debug\\build\\ring-652b734b6117ceb0\\out\\constant_time_test.obj"
+exit code: 0
+cargo:rustc-link-lib=static=ring-test
+cargo:rustc-link-search=native=d:\2-UIUC\ECE-598-blockchain\ece-598-pv-sp-2022-yuyangx5\target\debug\build\ring-652b734b6117ceb0\out
